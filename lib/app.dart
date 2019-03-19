@@ -15,6 +15,7 @@ class ShrineApp extends StatelessWidget {
       // TODO: Make currentCategory field take _currentCategory (104)
       // TODO: Pass _currentCategory for frontLayer (104)
       // TODO: Change backLayer field value to CategoryMenuPage (104)
+      // This adds the login screen to the Navigator, on top of what is passed in home: field
       initialRoute: '/login',
       onGenerateRoute: _getRoute,
       // TODO: Add a theme (103)

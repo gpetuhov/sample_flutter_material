@@ -70,7 +70,10 @@ class _LoginPageState extends State<LoginPage> {
                 RaisedButton(
                   child: Text('NEXT'),
                   onPressed: () {
-                    // TODO: Show the next page (101)
+                    // Show the next page
+                    // (we call pop, because in app.dart we added login screen
+                    // on top of home screen)
+                    Navigator.pop(context);
                   },
                 ),
               ],
