@@ -45,6 +45,29 @@ class _LoginPageState extends State<LoginPage> {
               ),
               obscureText: true,  // replaces the input with bullets
             ),
+            // ButtonBar arranges its children in a row
+            ButtonBar(
+              // TODO: Add a beveled rectangular border to CANCEL (103)
+              children: <Widget>[
+                // We should use FlatButton for less important actions
+                FlatButton(
+                  child: Text('CANCEL'),
+                  // Buttons without onPressed fields become disabled
+                  onPressed: () {
+                    // TODO: Clear the text fields (101)
+                  },
+                ),
+                // TODO: Add an elevation to NEXT (103)
+                // TODO: Add a beveled rectangular border to NEXT (103)
+                // We should use RaisedButton for the most important action
+                RaisedButton(
+                  child: Text('NEXT'),
+                  onPressed: () {
+                    // TODO: Show the next page (101)
+                  },
+                ),
+              ],
+            ),
           ],
         ),
       ),
