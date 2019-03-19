@@ -8,6 +8,10 @@ Learn Material Design Components for Flutter with a series of Flutter Codelabs.
 * To add external packages: edit pubspec.yaml file and click Packages get and import package in main.dart
 * To wrap widget with another widget: place cursor on the widget and press Alt-Enter -> Choose "Wrap with new widget"
 * When using Firebase, set minSdkVersion 21 in android/app/build.gradle to support Multidex, because Firebase requires Multidex support
+* To use files from the asset folder, update pubspec.yaml file
+
+## Source
+All code and assets are taken from Flutter Codelab repo: https://github.com/material-components/material-components-flutter-codelabs
 
 ## References
 https://codelabs.developers.google.com/codelabs/mdc-101-flutter/#0
