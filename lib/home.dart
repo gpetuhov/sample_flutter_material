@@ -19,6 +19,11 @@ class HomePage extends StatelessWidget {
           icon: Icon(
             // Hamburger icon
             Icons.menu,
+            // The information in this field better explains what this button does
+            // to people who use screen readers.
+            // It's a lot like Android's Content Labels.
+            // For a Widget that doesn't have a semanticLabel: field,
+            // you can wrap it in a Semantics widget.
             semanticLabel: 'menu',
           ),
           onPressed: () {
@@ -27,6 +32,27 @@ class HomePage extends StatelessWidget {
         ),
         // On Android title will be left-aligned, on iOS - centered
         title: Text('SHRINE'),
+        // Actions are displayed at the trailing side of the title
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.search,
+              semanticLabel: 'search',
+            ),
+            onPressed: () {
+              print('Search button');
+            },
+          ),
+          IconButton(
+            icon: Icon(
+              Icons.tune,
+              semanticLabel: 'filter',
+            ),
+            onPressed: () {
+              print('Filter button');
+            },
+          ),
+        ],
       ),
       // TODO: Add a grid view (102)
       body: Center(
