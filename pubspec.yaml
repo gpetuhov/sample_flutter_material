@@ -27,6 +27,8 @@ dependencies:
   # Package with Codelab images: https://pub.dartlang.org/packages/shrine_images
   shrine_images: 1.1.1
 
+  intl: ^0.15.6
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
