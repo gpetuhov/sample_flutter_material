@@ -13,7 +13,8 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       // This is the top app bar of the home screen
       appBar: AppBar(
-        // TODO: Add buttons and title (102)
+        // On Android title will be left-aligned, on iOS - centered
+        title: Text('SHRINE'),
       ),
       // TODO: Add a grid view (102)
       body: Center(
