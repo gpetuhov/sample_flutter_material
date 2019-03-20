@@ -13,6 +13,18 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       // This is the top app bar of the home screen
       appBar: AppBar(
+        // Leading field places widget at the leading position.
+        // IconButton is a convenient way to display buttons with material icons
+        leading: IconButton(
+          icon: Icon(
+            // Hamburger icon
+            Icons.menu,
+            semanticLabel: 'menu',
+          ),
+          onPressed: () {
+            print('Menu button');
+          },
+        ),
         // On Android title will be left-aligned, on iOS - centered
         title: Text('SHRINE'),
       ),
