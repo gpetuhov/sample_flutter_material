@@ -102,7 +102,10 @@ class HomePage extends StatelessWidget {
               child: Image.asset(
                 product.assetName,
                 package: product.assetPackage,
-                // TODO: Adjust the box size (102)
+                // The images are drawn with a BoxFit of .scaleDown by default.
+                // We change that to .fitWidth so they zoom in a little
+                // and remove the extra whitespace.
+                fit: BoxFit.fitWidth,
               ),
             ),
             Expanded(
