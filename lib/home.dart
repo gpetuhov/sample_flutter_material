@@ -64,13 +64,20 @@ class HomePage extends StatelessWidget {
         crossAxisCount: 2,
         padding: EdgeInsets.all(16.0),
         childAspectRatio: 8.0 / 9.0,
-        // Cards are independent elements that display content
-        // and actions on a single subject.
-        // The Card widget alone doesn't have enough information
-        // to lay itself out where we could see it,
-        // so we encapsulate it in a GridView widget.
-        children: <Widget>[
-          Card(
+        children: _buildGridCards(10)
+      ),
+    );
+  }
+
+  List<Card> _buildGridCards(int count) {
+    List<Card> cards = List.generate(
+      count,
+      // Cards are independent elements that display content
+      // and actions on a single subject.
+      // The Card widget alone doesn't have enough information
+      // to lay itself out where we could see it,
+      // so we encapsulate it in a GridView widget.
+      (int index) => Card(
             clipBehavior: Clip.antiAlias,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -94,9 +101,9 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
-          )
-        ],
-      ),
+          ),
     );
+
+    return cards;
   }
 }
