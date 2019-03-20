@@ -69,7 +69,33 @@ class HomePage extends StatelessWidget {
         // The Card widget alone doesn't have enough information
         // to lay itself out where we could see it,
         // so we encapsulate it in a GridView widget.
-        children: <Widget>[Card()],
+        children: <Widget>[
+          Card(
+            clipBehavior: Clip.antiAlias,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                // The AspectRatio widget decides what shape the image takes
+                // no matter what kind of image is supplied.
+                AspectRatio(
+                  aspectRatio: 18.0 / 11.0,
+                  child: Image.asset('assets/diamond.png'),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text('Title'),
+                      SizedBox(height: 8.0),
+                      Text('Secondary Text'),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
