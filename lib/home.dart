@@ -54,9 +54,22 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      // TODO: Add a grid view (102)
-      body: Center(
-        child: Text('You did it!'),
+      // We use the count() constructor since the number of items to display
+      // is countable and not infinite.
+      body: GridView.count(
+        // The crossAxisCount: specifies how many items across. We want 2 columns.
+        // Cross axis in Flutter means the non-scrolling axis.
+        // The scrolling direction is called the main axis.
+        // (GridView has vertical scrolling by default)
+        crossAxisCount: 2,
+        padding: EdgeInsets.all(16.0),
+        childAspectRatio: 8.0 / 9.0,
+        // Cards are independent elements that display content
+        // and actions on a single subject.
+        // The Card widget alone doesn't have enough information
+        // to lay itself out where we could see it,
+        // so we encapsulate it in a GridView widget.
+        children: <Widget>[Card()],
       ),
     );
   }
