@@ -90,7 +90,7 @@ class HomePage extends StatelessWidget {
       // so we encapsulate it in a GridView widget.
       return Card(
         clipBehavior: Clip.antiAlias,
-        // TODO: Adjust card heights (103)
+        elevation: 0.0,
         child: Column(
           // Center items on the card
           crossAxisAlignment: CrossAxisAlignment.center,
