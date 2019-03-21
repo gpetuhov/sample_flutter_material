@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'colors.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -31,23 +32,29 @@ class _LoginPageState extends State<LoginPage> {
             // TODO: Wrap Username with AccentColorOverride (103)
             // TODO: Wrap Password with AccentColorOverride (103)
             // [Name]
-            TextField(
-              controller: _usernameController,
-              decoration: InputDecoration(
-                // Removed filled: true, // fills the background to help the user identify input field
-                labelText: 'Username',
+            AccentColorOverride(
+              color: kShrineBrown900,
+              child: TextField(
+                controller: _usernameController,
+                decoration: InputDecoration(
+                  // Removed filled: true, // fills the background to help the user identify input field
+                  labelText: 'Username',
+                ),
               ),
             ),
             // spacer
             SizedBox(height: 12.0),
             // [Password]
-            TextField(
-              controller: _passwordController,
-              decoration: InputDecoration(
-                // Removed filled: true,
-                labelText: 'Password',
+            AccentColorOverride(
+              color: kShrineBrown900,
+              child: TextField(
+                controller: _passwordController,
+                decoration: InputDecoration(
+                  // Removed filled: true,
+                  labelText: 'Password',
+                ),
+                obscureText: true,  // replaces the input with bullets
               ),
-              obscureText: true,  // replaces the input with bullets
             ),
             // ButtonBar arranges its children in a row
             ButtonBar(
@@ -84,4 +91,23 @@ class _LoginPageState extends State<LoginPage> {
   }
 }
 
-// TODO: Add AccentColorOverride (103)
+// This is needed to override light accent color of the theme with dark color
+// to make input fields more visible when selected.
+class AccentColorOverride extends StatelessWidget {
+  const AccentColorOverride({Key key, this.color, this.child})
+      : super(key: key);
+
+  final Color color;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Theme(
+      child: child,
+      data: Theme.of(context).copyWith(
+        accentColor: color,
+        brightness: Brightness.dark,
+      ),
+    );
+  }
+}
