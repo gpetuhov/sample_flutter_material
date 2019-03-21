@@ -53,10 +53,37 @@ ThemeData _buildShrineTheme() {
     cardColor: kShrineBackgroundWhite,
     textSelectionColor: kShrinePink100,
     errorColor: kShrineErrorRed,
-    // TODO: Add the text themes (103)
-    // TODO: Add the icon themes (103)
+    // Add the text themes
+    textTheme: _buildShrineTextTheme(base.textTheme),
+    primaryTextTheme: _buildShrineTextTheme(base.primaryTextTheme),
+    accentTextTheme: _buildShrineTextTheme(base.accentTextTheme),
+    // Add the icon themes
+    primaryIconTheme: base.iconTheme.copyWith(
+        color: kShrineBrown900
+    ),
     // TODO: Decorate the inputs (103)
   );
 }
 
-// TODO: Build a Shrine Text Theme (103)
+// Build a Shrine Text Theme by copying TextTheme
+// and changing some of its properties.
+TextTheme _buildShrineTextTheme(TextTheme base) {
+  return base.copyWith(
+    headline: base.headline.copyWith(
+      fontWeight: FontWeight.w500,
+    ),
+    title: base.title.copyWith(
+        fontSize: 18.0
+    ),
+    caption: base.caption.copyWith(
+      fontWeight: FontWeight.w400,
+      fontSize: 14.0,
+    ),
+  ).apply(
+    // This applies the changes only to the typography scale values
+    // specified in copyWith() (headline, title, caption).
+    fontFamily: 'Rubik',
+    displayColor: kShrineBrown900,
+    bodyColor: kShrineBrown900,
+  );
+}
