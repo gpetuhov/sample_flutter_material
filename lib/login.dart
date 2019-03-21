@@ -58,11 +58,14 @@ class _LoginPageState extends State<LoginPage> {
             ),
             // ButtonBar arranges its children in a row
             ButtonBar(
-              // TODO: Add a beveled rectangular border to CANCEL (103)
               children: <Widget>[
                 // We should use FlatButton for less important actions
                 FlatButton(
                   child: Text('CANCEL'),
+                  // Change button shape
+                  shape: BeveledRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(7.0)),
+                  ),
                   // Buttons without onPressed fields become disabled
                   onPressed: () {
                     // Clear the text fields
@@ -70,12 +73,15 @@ class _LoginPageState extends State<LoginPage> {
                     _passwordController.clear();
                   },
                 ),
-                // TODO: Add a beveled rectangular border to NEXT (103)
                 // We should use RaisedButton for the most important action
                 RaisedButton(
                   // Default elevation is 2.0
                   elevation: 8.0,
                   child: Text('NEXT'),
+                  // Change button shape
+                  shape: BeveledRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(7.0)),
+                  ),
                   onPressed: () {
                     // Show the next page
                     // (we call pop, because in app.dart we added login screen
