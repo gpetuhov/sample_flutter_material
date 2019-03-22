@@ -6,6 +6,8 @@ import 'model/product.dart';
 // TODO: Add velocity constant (104)
 
 // This class is used to customize the home screen
+// Backdrop is our own widget that mainly consists
+// of a Stack that holds 2 children: frontLayer and backLayer.
 
 class Backdrop extends StatefulWidget {
   final Category currentCategory;
@@ -32,7 +34,6 @@ class Backdrop extends StatefulWidget {
   _BackdropState createState() => _BackdropState();
 }
 
-// TODO: Add _FrontLayer class (104)
 // TODO: Add _BackdropTitle class (104)
 
 class _BackdropState extends State<Backdrop>
@@ -48,7 +49,8 @@ class _BackdropState extends State<Backdrop>
       key: _backdropKey,
       children: <Widget>[
         widget.backLayer,
-        widget.frontLayer,
+        // Wrap front layer in _FrontLayer
+        _FrontLayer(child: widget.frontLayer),
       ],
     );
   }
@@ -90,6 +92,36 @@ class _BackdropState extends State<Backdrop>
       appBar: appBar,
       // TODO: Return a LayoutBuilder widget (104)
       body: _buildStack(),
+    );
+  }
+}
+
+// Front layer with an angled cut in the upper-left corner
+class _FrontLayer extends StatelessWidget {
+  // TODO: Add on-tap callback (104)
+  const _FrontLayer({
+    Key key,
+    this.child,
+  }) : super(key: key);
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      elevation: 16.0,
+      shape: BeveledRectangleBorder(
+        borderRadius: BorderRadius.only(topLeft: Radius.circular(46.0)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          // TODO: Add a GestureDetector (104)
+          Expanded(
+            child: child,
+          ),
+        ],
+      ),
     );
   }
 }
