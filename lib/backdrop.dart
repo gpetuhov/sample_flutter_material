@@ -59,7 +59,17 @@ class _BackdropState extends State<Backdrop>
     );
   }
 
-  // TODO: Add override for didUpdateWidget (104)
+  @override
+  void didUpdateWidget(Backdrop old) {
+    super.didUpdateWidget(old);
+
+    // This is needed to close menu on item selection
+    if (widget.currentCategory != old.currentCategory) {
+      _toggleBackdropLayerVisibility();
+    } else if (!_frontLayerVisible) {
+      _controller.fling(velocity: _kFlingVelocity);
+    }
+  }
 
   // The dispose() method is also only called once,
   // when the widget is removed from its tree for good.
