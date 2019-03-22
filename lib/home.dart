@@ -10,12 +10,12 @@ import 'supplemental/asymmetric_view.dart';
 // (these files are not used in the app, but remain for reference).
 
 class HomePage extends StatelessWidget {
-  // TODO: Add a variable for Category (104)
+  final Category category;
+
+  const HomePage({this.category: Category.all});
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Return an AsymmetricView (104)
-    // TODO: Pass Category variable to AsymmetricView (104)
-    return  AsymmetricView(products: ProductsRepository.loadProducts(Category.all));
+    return AsymmetricView(products: ProductsRepository.loadProducts(category));
   }
 }
